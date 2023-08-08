@@ -1,36 +1,35 @@
 # GBot 6.0
-Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! GBot utilizes Google Firebase Realtime Database to save server and user data.
+Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! GBot utilizes Google Firebase Realtime Database to save server and user data. Spice up your Discord server today!
 
-## Features
+## Main Features
 
-#### GBot 6.0
-- (NEW) <ins>Slash command</ins> functionality for all commmands (Config, GCoin, GTrade, Hype, Music, Patreon, and Storms)
-- (NEW) <ins>Storms</ins> enhancements to show all Storm activity only in the configured channel & purge messages all at once
-- (NEW) <ins>Config</ins> enhancement allowing admins to enable or disable legacy prefix commands in their servers
+#### <ins>Configuration Settings</ins>
+- Enable or disable any of the features described below to your liking (Hype, GCoin, GTrade, Storms, Music).
+- All commands are slash commands, however you can enable legacy prefix support to allow commands to be triggered with a prefix.
+- Ability to configure an admin role & channel for admin notifications, channel for Storm mini-games, and desired prefix.
 
-#### GBot 5.0
-- <ins>Storms</ins> (randomly timed mini-games) have returned from [StormBot](https://github.com/cgoulart35/StormBot)
-- <ins>Music bot</ins> enhancement to sync music with user Spotify activity
+#### <ins>Automated & Randomized Reactions & Replies</ins> (Hype)
+- Utilize and configure regular expressions to match against incoming messages to automate replies and reactions.
+- Provide multiple replies or reactions for one regular expression to randomize the bot's response.
 
-#### GBot 4.0
-- GBot <ins>Patreon</ins> member tracking functionality
-- <ins>Hype</ins> message regex matcher functionality for automated replies and reactions
+#### <ins>Currency & User Items</ins> (GCoin & GTrade)
+- Every user can earn, spend, and send their GCoin balance the way they want to.
+- A user's GCoin balance is carried across all Discord servers and not just limited to one server.
+- Create image items and trade them with other users across all Discord servers (more coming soon).
 
-#### GBot 3.0
-- User-specific <ins>GCoin currency</ins> and transaction functionality
-- User-specific <ins>GTrade items</ins> and crafting functionality
-- ~~<ins>Halo Infinite</ins> competition enhancement with <ins>GCoin integration</ins>~~ (DISCONTINUED)
+#### <ins>Mini-Games</ins>
+- Random Storm mini-games where you guess or bet on a random number from 1-200 to win GCoin.
+  - In addtion to enabling Storms functionality, a channel must be configured for incoming Storms for the mini-game work.
+- Mini-games that reward users with GCoin require GCoin functionality to be enabled.
 
-#### GBot 2.0
-- <ins>Music bot</ins> functionality to play YouTube videos
+#### <ins>Music Bot</ins>
+- Ability to play sounds downloaded from YouTube to your active voice channel by providing a URL or generic description.
+- Type less! Use Spotify activity syncing functionality to add songs playing in your Spotify activity to the bot's music queue.
 
-#### GBot 1.0
-- Server-specific <ins>configuration</ins> settings
-- ~~Weekly <ins>Halo Infinite competitions</ins> with random challenges~~ (DISCONTINUED)
-- ~~Daily <ins>Halo Infinite Message of the Day</ins> checks~~ (DISCONTINUED)
-
-## Future Updates
-- GTrade enhancement with item value appreciation and new item types
+#### <ins>Patreon Subscription Model</ins>
+- In order to have access to GBot, you must be in a Discord server subscribed to GBot.
+- GBot will leave Discord servers that are not subscribed. When GBot leaves a server, all server configuration settings will be lost.
+- To add GBot to a Discord server, you must subscribe to the [GBot patreon tier here](https://www.patreon.com/StormerG). You will be prompted to join the GBot Patreon Discord Server with your Patreon-linked Discord account where you will register the desired Discord server.
 
 ## Command Glossary
 ![Alt text](<Slash Commands Animation.gif>)
@@ -475,6 +474,36 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 
+# GBot Development
+
+## Changelog
+
+#### GBot 6.0
+- (NEW) <ins>Slash command</ins> functionality for all commmands (Config, GCoin, GTrade, Hype, Music, Patreon, and Storms)
+- (NEW) <ins>Storms</ins> enhancements to show all Storm activity only in the configured channel & purge messages all at once
+- (NEW) <ins>Config</ins> enhancement allowing admins to enable or disable legacy prefix commands in their servers
+
+#### GBot 5.0
+- <ins>Storms</ins> (randomly timed mini-games) have returned from [StormBot](https://github.com/cgoulart35/StormBot)
+- <ins>Music bot</ins> enhancement to sync music with user Spotify activity
+
+#### GBot 4.0
+- GBot <ins>Patreon</ins> member tracking functionality
+- <ins>Hype</ins> message regex matcher functionality for automated replies and reactions
+
+#### GBot 3.0
+- User-specific <ins>GCoin currency</ins> and transaction functionality
+- User-specific <ins>GTrade items</ins> and crafting functionality
+- ~~<ins>Halo Infinite</ins> competition enhancement with <ins>GCoin integration</ins>~~ (DISCONTINUED)
+
+#### GBot 2.0
+- <ins>Music bot</ins> functionality to play YouTube videos
+
+#### GBot 1.0
+- Server-specific <ins>configuration</ins> settings
+- ~~Weekly <ins>Halo Infinite competitions</ins> with random challenges~~ (DISCONTINUED)
+- ~~Daily <ins>Halo Infinite Message of the Day</ins> checks~~ (DISCONTINUED)
+
 ## Setup Guide
 1. Clone GBot.
 2. Install Docker (and Docker compose if on Linux).
@@ -516,7 +545,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 
 ## Quart API
 
-### <ins>Development</ins>
+#### <ins>Development</ins>
 <details>
 <summary>Click to expand /GBot/development endpoints.</summary>
 
@@ -545,7 +574,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 
-### <ins>Discord</ins>
+#### <ins>Discord</ins>
 <details>
 <summary>Click to expand /GBot/discord endpoints.</summary>
 
@@ -574,7 +603,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 
-### <ins>~~Halo~~ (DISCONTINUED)</ins>
+#### <ins>~~Halo~~ (DISCONTINUED)</ins>
 <details>
 <summary>Click to expand /GBot/halo/competition endpoints.</summary>
 
@@ -630,7 +659,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 
-### <ins>Storms</ins>
+#### <ins>Storms</ins>
 <details>
 <summary>Click to expand /GBot/storms/start endpoints.</summary>
 
