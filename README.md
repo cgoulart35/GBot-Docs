@@ -1,4 +1,4 @@
-# GBot 6.0
+# GBot 7.0
 Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! GBot utilizes Google Firebase Realtime Database to save server and user data. Spice up your Discord server today!
 
 ## Main Features
@@ -20,6 +20,8 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 #### <ins>Mini-Games</ins>
 - Random Storm mini-games where you guess or bet on a random number from 1-200 to win GCoin.
   - In addtion to enabling Storms functionality, a channel must be configured for incoming Storms for the mini-game work.
+- 'Who Dis?' mini-games where you guess a random user in the server you are anonymously paired with to win GCoin.
+  - In addtion to enabling 'Who Dis?' functionality, a role must be configured for GBot to know which users are opted into 'Who Dis?'.
 - Mini-games that reward users with GCoin require GCoin functionality to be enabled.
 
 #### <ins>Music Bot</ins>
@@ -90,7 +92,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
          * `Turn on/off all functionality for a GBot feature in this server. (admin only)`
       *  Syntax:
          * `.[toggle|t] <feature_type>`
-         * `feature_type options are: gcoin, gtrade, hype, music, storms, legacy prefix commands`
+         * `feature_type options are: gcoin, gtrade, hype, music, storms, 'who dis', 'legacy prefix commands'`
       *  Example:
          * `.t hype`
       </details>
@@ -474,14 +476,67 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 
+#### <ins>Who Dis</ins>
+<details>
+<summary>Click to expand Who Dis commands.</summary>
+
+  *   <details>
+      <summary>.whodis</summary>
+
+      *  Description:
+         * `Start or end a mini-game where you try to guess a random user in the server you are paired with. You have 1 guess, and if you guess correctly you earn 10.00 GCoin.`
+      *  Syntax:
+         * `.[whodis|wd]`
+      *  Example:
+         * `.whodis`
+      </details>
+
+  *   <details>
+      <summary>.dis</summary>
+
+      *  Description:
+         * `Guess the name of the user you are paired with for a chance to win 10.00 GCoin.`
+      *  Syntax:
+         * `.[dis|ds] <user>`
+      *  Example:
+         * `.ds jonsnow1234`
+      </details>
+
+  *   <details>
+      <summary>.leavedis</summary>
+
+      *  Description:
+         * `Remove the server's 'Who Dis?' role opting you out of any future games.`
+      *  Syntax:
+         * `.[leavedis|ld]`
+      *  Example:
+         * `.ld`
+      </details>
+
+  *   <details>
+      <summary>.report</summary>
+
+      *  Description:
+         * `Report a user to server admins for bad behavior. The reported user's last 5 messages will be captured from the channel sent in, or an ongoing Who Dis game.`
+      *  Syntax:
+         * `.[report|rp]`
+      *  Example:
+         * `.report`
+         * `.rp @CerseiLannister`
+      </details>
+</details>
+
 # GBot Development
 
 ## Changelog
 
+#### GBot 7.0
+- (NEW) <ins>Who Dis</ins> random user chat mini-game functionality
+
 #### GBot 6.0
-- (NEW) <ins>Slash command</ins> functionality for all commmands (Config, GCoin, GTrade, Hype, Music, Patreon, and Storms)
-- (NEW) <ins>Storms</ins> enhancements to show all Storm activity only in the configured channel & purge messages all at once
-- (NEW) <ins>Config</ins> enhancement allowing admins to enable or disable legacy prefix commands in their servers
+- <ins>Slash command</ins> functionality for all commmands (Config, GCoin, GTrade, Hype, Music, Patreon, and Storms)
+- <ins>Storms</ins> enhancements to show all Storm activity only in the configured channel & purge messages all at once
+- <ins>Config</ins> enhancement allowing admins to enable or disable legacy prefix commands in their servers
 
 #### GBot 5.0
 - <ins>Storms</ins> (randomly timed mini-games) have returned from [StormBot](https://github.com/cgoulart35/StormBot)
@@ -516,24 +571,27 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 8. Under the Discord bot project's bot settings, enable all intents and add the bot to your server with administrator privileges.
 9. Move GBot's role above other roles you create in the server that GBot will assign to server members.
 10. ~~Sign up for an Autocode token to utilize the free [Halo API](https://autocode.com/lib/halo/infinite/) service.~~
-11. Update the GBot/Shared/env.variables file with your Discord bot token, ~~Autocode token~~, and Firebase data.
-12. Set your preferred time zone (TZ) in the GBot/Shared/env.variables file. (Ex: TZ=America/New_York)
-13. Set your preferred port for the Quart API to run on. (Ex: API_PORT=5004)
-14. Set the Git Project Update Handler URL if you would like to utilize streamlined Git upgrades. (Ex: GIT_UPDATER_HOST=http://\<INSERT-HANDLER-HOSTNAME-AND-PORT\>)
-15. Set the Patreon URL to promote subscribing when users are unable to execute commands. (Ex: PATREON_URL=https://www.patreon.com/\<INSERT-PATREON-PAGE-NAME\>)
-16. Set the Discord IDs of the guild and role that will be used for Patreon integration. (Ex: PATREON_GUILD_ID=012345678910111213 and PATRON_ROLE_ID=012345678910111213)
-17. Set the comma delimited list of Discord guild IDs that will bypass Patreon validation. (Ex: PATREON_IGNORE_GUILDS=012345678910111213,012345678910111213,012345678910111213)
-18. Set your preferred timeout for user responses to GBot messages. (Ex: USER_RESPONSE_TIMEOUT_SECONDS=300 if you want the bot to stop listening for a user response after 5 minutes)
-19. ~~Set your preferred Halo MOTD and Competition trigger times in the GBot/Shared/env.variables file. (Ex: HALO_INFINITE_COMPETITION_DAY=5 if you want competitions to start/end on Saturdays)~~
-20. Set your preferred music bot timeout in the GBot/Shared/env.variables file. (Ex: MUSIC_TIMEOUT_SECONDS=300 if you want the music bot to leave after 5 minutes of inactivity)
-21. Set your preferred cached music timeout for deletion in the GBot/Shared/env.variables file. This timeout should be set to a higher length of time than the length of the longest videos being played in elevator mode to ensure downloaded sounds aren't deleted before they should be used. (Ex: MUSIC_CACHE_DELETION_TIMEOUT_MINUTES=180 if you want the music bot to delete cached song downloads after 3 hours of not being used, and to prevent songs over 3 hours long from being played.)
-22. Set your preferred transaction request timeout for buy and sell requests to be cancelled. (Ex: GTRADE_TRANSACTION_REQUEST_TIMEOUT_MINUTES=5 if you want transaction requests to be cancelled after 5 minutes of not being accepted.)
-23. Set your preferred market sale timeout for market sales to be taken down. (Ex: GTRADE_MARKET_SALE_TIMEOUT_HOURS=3 if you want market sales to be taken down after 3 hours of no completed transaction.)
-24. Set your preferred minimum amount of time between random Storms minigames. (Ex: STORMS_MIN_TIME_BETWEEN_SECONDS=3600 if you want there to be at least 1 hour between each Storm.)
-25. Set your preferred maximum amount of time between random Storms minigames. (Ex: STORMS_MAX_TIME_BETWEEN_SECONDS=14400 if you want there to be at most 4 hours between each Storm.)
-26. Set your preferred amount of time for Storms-related messages to be deleted after. (Ex: STORMS_DELETE_MESSAGES_AFTER_SECONDS=60 if you want Storm-related messages to be deleted after 60 seconds.)
-27. Verify all files have read/write/execute permissions.
-28. From the GBot directory, run 'docker-compose -f docker-compose-prod.yml up -d' to start the bot!
+11. Update the GBot/Shared/gbot.env file with your Discord bot token, ~~Autocode token~~, and Firebase data.
+12. Set your preferred time zone (TZ) in the GBot/Shared/gbot.env file. (Ex: TZ=America/New_York)
+13. Set your preferred log level for the logged info and error messages. (Ex: LOG_LEVEL=INFO)
+14. Set your preferred port for the Quart API to run on. (Ex: API_PORT=5004)
+15. Set the Git Project Update Handler URL if you would like to utilize streamlined Git upgrades. (Ex: GIT_UPDATER_HOST=http://\<INSERT-HANDLER-HOSTNAME-AND-PORT\>)
+16. Set the Patreon URL to promote subscribing when users are unable to execute commands. (Ex: PATREON_URL=https://www.patreon.com/\<INSERT-PATREON-PAGE-NAME\>)
+17. Set the Discord IDs of the guild and role that will be used for Patreon integration. (Ex: PATREON_GUILD_ID=012345678910111213 and PATRON_ROLE_ID=012345678910111213)
+18. Set the comma delimited list of Discord guild IDs that will bypass Patreon validation. (Ex: PATREON_IGNORE_GUILDS=012345678910111213,012345678910111213,012345678910111213)
+19. Set your preferred timeout for user responses to GBot messages. (Ex: USER_RESPONSE_TIMEOUT_SECONDS=300 if you want the bot to stop listening for a user response after 5 minutes)
+20. ~~Set your preferred Halo MOTD and Competition trigger times in the GBot/Shared/gbot.env file. (Ex: HALO_INFINITE_COMPETITION_DAY=5 if you want competitions to start/end on Saturdays)~~
+21. Set your preferred music bot timeout in the GBot/Shared/gbot.env file. (Ex: MUSIC_TIMEOUT_SECONDS=300 if you want the music bot to leave after 5 minutes of inactivity)
+22. Set your preferred cached music timeout for deletion in the GBot/Shared/gbot.env file. This timeout should be set to a higher length of time than the length of the longest videos being played in elevator mode to ensure downloaded sounds aren't deleted before they should be used. (Ex: MUSIC_CACHE_DELETION_TIMEOUT_MINUTES=180 if you want the music bot to delete cached song downloads after 3 hours of not being used, and to prevent songs over 3 hours long from being played.)
+23. Set your preferred transaction request timeout for buy and sell requests to be cancelled. (Ex: GTRADE_TRANSACTION_REQUEST_TIMEOUT_MINUTES=5 if you want transaction requests to be cancelled after 5 minutes of not being accepted.)
+24. Set your preferred market sale timeout for market sales to be taken down. (Ex: GTRADE_MARKET_SALE_TIMEOUT_HOURS=3 if you want market sales to be taken down after 3 hours of no completed transaction.)
+25. Set your preferred minimum amount of time between random Storms minigames. (Ex: STORMS_MIN_TIME_BETWEEN_SECONDS=3600 if you want there to be at least 1 hour between each Storm.)
+26. Set your preferred maximum amount of time between random Storms minigames. (Ex: STORMS_MAX_TIME_BETWEEN_SECONDS=14400 if you want there to be at most 4 hours between each Storm.)
+27. Set your preferred amount of time for Storms-related messages to be deleted after. (Ex: STORMS_DELETE_MESSAGES_AFTER_SECONDS=60 if you want Storm-related messages to be deleted after 60 seconds.)
+28. Set your preferred 'Who Dis?' timeout in the GBot/Shared/gbot.env file. (Ex: WHODIS_TIMEOUT_MINUTES=5 if you want Who Dis games to timeout after 5 minutes)
+29. If you are a developer, set your development guild IDs in the GBot/Shared/gbot.env file. (Ex: SLASH_COMMAND_TEST_GUILDS=012345678910111213,012345678910111213,012345678910111213 if you want to register the slash commands only in specific guilds)
+30. Verify all files have read/write/execute permissions.
+31. From the GBot directory, run 'docker-compose -f docker-compose-prod.yml up -d' to start the bot!
 
  ## Unit Tests
  * To execute all unit tests (for all cog suites), use the "Python: Current File" run configuration to run tests.py.
