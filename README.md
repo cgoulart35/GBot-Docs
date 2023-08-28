@@ -4,7 +4,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 ## Main Features
 
 #### <ins>Configuration Settings</ins>
-- Enable or disable any of the features described below to your liking (Hype, GCoin, GTrade, Storms, Music).
+- Enable or disable any of the features described below to your liking (Hype, GCoin, GTrade, Storms, Who Dis, Music).
 - All commands are slash commands, however you can enable legacy prefix support to allow commands to be triggered with a prefix.
 - Ability to configure an admin role & channel for admin notifications, channel for Storm mini-games, and desired prefix.
 
