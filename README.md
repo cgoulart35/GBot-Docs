@@ -605,15 +605,15 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 
 #### <ins>Development</ins>
 <details>
-<summary>Click to expand /GBot/development endpoints.</summary>
+<summary>Click to expand /GBot/private/development endpoints.</summary>
 
   *   <details>
-      <summary>GET</summary>
+      <summary>GET (/doc)</summary>
 
       *  Description:
          * `Returns available options to be used in POST request.`
       *  Syntax:
-         * `GET - http://localhost:5004/GBot/development`
+         * `GET - http://localhost:5004/GBot/private/development/doc`
       *  Response:
          * `{"options":{"action":[{"name":"rebuildLatest"},{"name":"setProperty","property":"LOG_LEVEL","value":"DEBUG"}]},"postBodyTemplate":{"action":{"name":"setProperty","property":"LOG_LEVEL","value":"DEBUG"}}}`
       </details>
@@ -624,7 +624,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       *  Description:
          * `Use development features.`
       *  Syntax:
-         * `POST - http://localhost:5004/GBot/development`
+         * `POST - http://localhost:5004/GBot/private/development`
       *  Body:
          * `{"action":{"name":"rebuildLatest"}}`
       *  Response:
@@ -634,15 +634,15 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 
 #### <ins>Discord</ins>
 <details>
-<summary>Click to expand /GBot/discord endpoints.</summary>
+<summary>Click to expand /GBot/private/discord endpoints.</summary>
 
   *   <details>
-      <summary>GET</summary>
+      <summary>GET (/doc)</summary>
 
       *  Description:
          * `Returns available options to be used in POST request.`
       *  Syntax:
-         * `GET - http://localhost:5004/GBot/discord`
+         * `GET - http://localhost:5004/GBot/private/discord/doc`
       *  Response:
          * `{"options":{"action":[{"name":"leaveGuild","serverId":"012345678910111213"},{"name":"sendMessage","message":"Hello world!","channelId":"012345678910111213","optionalMessageIdForReply":"012345678910111213"}]},"postBodyTemplate":{"action":{"name":"sendMessage","message":"Hello world!","channelId":"012345678910111213","optionalMessageIdForReply":"012345678910111213"}}}`
       </details>
@@ -653,7 +653,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       *  Description:
          * `Use Discord features.`
       *  Syntax:
-         * `POST - http://localhost:5004/GBot/discord`
+         * `POST - http://localhost:5004/GBot/private/discord`
       *  Body:
          * `{"action":{"name":"sendMessage","message":"Hello world!","channelId":"012345678910111213","optionalMessageIdForReply":"012345678910111213"}}`
       *  Response:
@@ -663,15 +663,15 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 
 #### <ins>~~Halo~~ (DISCONTINUED)</ins>
 <details>
-<summary>Click to expand /GBot/halo/competition endpoints.</summary>
+<summary>Click to expand /GBot/private/halo/competition endpoints.</summary>
 
   *   <details>
-      <summary>GET</summary>
+      <summary>GET (/doc)</summary>
 
       *  ~~Description:~~
          * ~~`Returns available options to be used in POST request.`~~
       *  ~~Syntax:~~
-         * ~~`GET - http://localhost:5004/GBot/halo/competition`~~
+         * ~~`GET - http://localhost:5004/GBot/private/halo/competition/doc`~~
       *  ~~Response:~~
          * ~~`{"options":{"serverId":["012345678910111213","all"],"startCompetition":[true,false]},"postBodyTemplate":{"serverId":"012345678910111213","startCompetition":false}}`~~
       </details>
@@ -682,7 +682,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       *  ~~Description:~~
          * ~~`Trigger Halo competition status update for individual or all servers.`~~
       *  ~~Syntax:~~
-         * ~~`POST - http://localhost:5004/GBot/halo/competition`~~
+         * ~~`POST - http://localhost:5004/GBot/private/halo/competition`~~
       *  ~~Body:~~
          * ~~`{"serverId":"012345678910111213","startCompetition":false}`~~
       *  ~~Response:~~
@@ -690,15 +690,15 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 <details>
-<summary>Click to expand /GBot/halo/motd endpoints.</summary>
+<summary>Click to expand /GBot/private/halo/motd endpoints.</summary>
 
   *   <details>
-      <summary>GET</summary>
+      <summary>GET (/doc)</summary>
 
       *  ~~Description:~~
          * ~~`Returns available options to be used in POST request.`~~
       *  ~~Syntax:~~
-         * ~~GET - http://localhost:5004/GBot/halo/motd`~~
+         * ~~GET - http://localhost:5004/GBot/private/halo/motd/doc`~~
       *  ~~Response:~~
          * ~~`{"options":{"serverId":["012345678910111213","all"]},"postBodyTemplate":{"serverId":"012345678910111213"}}`~~
       </details>
@@ -709,7 +709,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       *  ~~Description:~~
          * ~~`Trigger Halo MOTD update for individual or all servers.`~~
       *  ~~Syntax:~~
-         * ~~`POST - http://localhost:5004/GBot/halo/motd`~~
+         * ~~`POST - http://localhost:5004/GBot/private/halo/motd`~~
       *  ~~Body:~~
          * ~~`{"serverId":"all"}`~~
       *  ~~Response:~~
@@ -719,15 +719,15 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 
 #### <ins>Storms</ins>
 <details>
-<summary>Click to expand /GBot/storms/start endpoints.</summary>
+<summary>Click to expand /GBot/private/storms/start endpoints.</summary>
 
   *   <details>
-      <summary>GET</summary>
+      <summary>GET (/doc)</summary>
 
       *  Description:
          * `Returns available options to be used in POST request.`
       *  Syntax:
-         * `GET - http://localhost:5004/GBot/storms/start`
+         * `GET - http://localhost:5004/GBot/private/storms/start/doc`
       *  Response:
          * `{"options":{"serverId":["012345678910111213","all"]},"postBodyTemplate":{"serverId":"012345678910111213"}}`
       </details>
@@ -738,7 +738,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       *  Description:
          * `Trigger a new Storm for individual or all servers.`
       *  Syntax:
-         * `POST - http://localhost:5004/GBot/storms/start`
+         * `POST - http://localhost:5004/GBot/private/storms/start`
       *  Body:
          * `{"serverId":"012345678910111213"}`
       *  Response:
@@ -746,15 +746,15 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>
 <details>
-<summary>Click to expand /GBot/storms/state endpoints.</summary>
+<summary>Click to expand /GBot/private/storms/state endpoints.</summary>
 
   *   <details>
-      <summary>GET</summary>
+      <summary>GET (/doc)</summary>
 
       *  Description:
          * `Returns available options to be used in POST request.`
       *  Syntax:
-         * `GET - http://localhost:5004/GBot/storms/state`
+         * `GET - http://localhost:5004/GBot/private/storms/state/doc`
       *  Response:
          * `{"options":{"serverId":["012345678910111213","all"]},"postBodyTemplate":{"serverId":"012345678910111213"}}`
       </details>
@@ -765,7 +765,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       *  Description:
          * `Get an individual or all servers' Storm states.`
       *  Syntax:
-         * `POST - http://localhost:5004/GBot/storms/state`
+         * `POST - http://localhost:5004/GBot/private/storms/state`
       *  Body:
          * `{"serverId":"all"}`
       *  Response:
