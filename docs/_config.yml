@@ -1,0 +1,12 @@
+show_downloads: false
+google_analytics:
+theme: jekyll-theme-cayman
+
+title: GBot
+description: Welcome to GBot! A Dockerized Python Discord bot, for fun! Spice up your Discord server today!
+github:
+  is_project_page: true
+  repository_url: https://github.com/cgoulart35/GBot-Docs
+  repository_name: GBot-Docs
+  owner_url: https://github.com/cgoulart35
+  owner_name: cgoulart35
