@@ -484,7 +484,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       <summary>.whodis</summary>
 
       *  Description:
-         * `Start or end a mini-game where you try to guess a random user in the server you are paired with. You have 1 guess, and if you guess correctly you earn 10.00 GCoin.`
+         * `Start or end a mini-game where you try to guess a random user in the server you are paired with. You have 1 guess, and if you guess correctly you earn GCoin.`
       *  Syntax:
          * `.[whodis|wd]`
       *  Example:
@@ -495,7 +495,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       <summary>.dis</summary>
 
       *  Description:
-         * `Guess the name of the user you are paired with for a chance to win 10.00 GCoin.`
+         * `Guess the name of the user you are paired with for a chance to win GCoin.`
       *  Syntax:
          * `.[dis|ds] <user>`
       *  Example:
