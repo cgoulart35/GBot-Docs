@@ -2,122 +2,36 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! GBot utilizes Google Firebase Realtime Database to save server and user data. Spice up your Discord server today!
 
-[Link to another page](./another-page.html).
+## Main Features
 
-There should be whitespace between paragraphs.
+#### <ins>Configuration Settings</ins>
+- Enable or disable any of the features described below to your liking (Hype, GCoin, GTrade, Storms, Who Dis, Music).
+- All commands are slash commands, however you can enable legacy prefix support to allow commands to be triggered with a prefix.
+- Ability to configure an admin role & channel for admin notifications/user reports, a channel for Storm mini-games, a role for 'Who Dis?' participants, and a desired command prefix.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+#### <ins>Automated & Randomized Reactions & Replies</ins> (Hype)
+- Utilize and configure regular expressions to match against incoming messages to automate replies and reactions.
+- Provide multiple replies or reactions for one regular expression to randomize the bot's response.
 
-# Header 1
+#### <ins>Currency & User Items</ins> (GCoin & GTrade)
+- Every user can earn, spend, and send their GCoin balance the way they want to.
+- A user's GCoin balance is carried across all Discord servers and not just limited to one server.
+- Create image items and trade them with other users across all Discord servers (more coming soon).
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+#### <ins>Mini-Games</ins>
+- Random Storm mini-games where you guess or bet on a random number from 1-200 to win GCoin.
+  - In addtion to enabling Storms functionality, a channel must be configured for incoming Storms for the mini-game work.
+- 'Who Dis?' mini-games where you guess a random user in the server you are anonymously paired with to win GCoin.
+  - In addtion to enabling 'Who Dis?' functionality, a role must be configured for GBot to know which users are opted into 'Who Dis?'.
+- Mini-games that reward users with GCoin require GCoin functionality to be enabled.
 
-## Header 2
+#### <ins>Music Bot</ins>
+- Ability to play sounds downloaded from YouTube to your active voice channel by providing a URL or generic description.
+- Type less! Use Spotify activity syncing functionality to add songs playing in your Spotify activity to the bot's music queue.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+#### <ins>Patreon Subscription Model</ins>
+- In order to have access to GBot, you must be in a Discord server subscribed to GBot.
+- GBot will leave Discord servers that are not subscribed. When GBot leaves a server, all server configuration settings will be lost.
+- To add GBot to a Discord server, you must subscribe to the [GBot patreon tier here](https://www.patreon.com/StormerG). You will be prompted to join the GBot Patreon Discord Server with your Patreon-linked Discord account where you will register the desired Discord server.

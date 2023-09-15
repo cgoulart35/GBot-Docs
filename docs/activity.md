@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Recent Activity
-description: The latest user activity.
+title: User Activity
+description:
 ---
 
-<table id="gcoinTable"></table>
+<table id="activityTable"></table>
 
 <script>
     function createHeader() {
-        var table = document.getElementById("gcoinTable");
+        var table = document.getElementById("activityTable");
         var header = table.createTHead(table);
         var row = header.insertRow(0);
-        var head = ["User", "GCoin"];
+        var head = ["Date", "User", "Activity"];
         for (let i = 0; i < head.length; i++) {
             let cell = document.createElement("th");
             cell.innerText = head[i];
@@ -19,20 +19,21 @@ description: The latest user activity.
         }
     }
     function populateBody(json) {
-        var table = document.getElementById("gcoinTable");
+        var table = document.getElementById("activityTable");
         var tbody = table.createTBody(table);
         var i = 0;
         for (key in json) {
             var row = tbody.insertRow(i);
             row.innerHTML = `
-            <td>${key}</td>
-            <td>${json[key].balance}</td>
+            <td>${json[key].date}</td>
+            <td>${json[key].username}</td>
+            <td>${json[key].activity}</td>
             `;
             i++;
         }
     }
     function setupSorting(colToClick) {
-        var excludedColumns = ["User"];
+        var excludedColumns = ["User", "Activity"];
         const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
         const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
             v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
@@ -59,13 +60,11 @@ description: The latest user activity.
             thToClick.click();
         }
     }
-    fetch("https://gbot-database-default-rtdb.firebaseio.com/gcoin.json")
+    fetch("{{site.gbot_host}}/GBot/public/activity")
         .then((response) => response.json())
         .then(json => {
             createHeader();
             populateBody(json);
-            setupSorting("GCoin");
+            setupSorting("Date");
         });
 </script>
-
-[back](./)

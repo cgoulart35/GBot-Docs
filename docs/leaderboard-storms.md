@@ -1,17 +1,17 @@
 ---
 layout: default
-title: "'Who Dis?' Leaderboard"
-description: "Users with the most 'Who Dis?' wins."
+title: Storms Leaderboard
+description:
 ---
 
-<table id="gcoinTable"></table>
+<table id="stormsTable"></table>
 
 <script>
     function createHeader() {
-        var table = document.getElementById("gcoinTable");
+        var table = document.getElementById("stormsTable");
         var header = table.createTHead(table);
         var row = header.insertRow(0);
-        var head = ["User", "GCoin"];
+        var head = ["User", "Wins", "Total Rewards", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
         for (let i = 0; i < head.length; i++) {
             let cell = document.createElement("th");
             cell.innerText = head[i];
@@ -19,14 +19,19 @@ description: "Users with the most 'Who Dis?' wins."
         }
     }
     function populateBody(json) {
-        var table = document.getElementById("gcoinTable");
+        var table = document.getElementById("stormsTable");
         var tbody = table.createTBody(table);
         var i = 0;
         for (key in json) {
             var row = tbody.insertRow(i);
             row.innerHTML = `
-            <td>${key}</td>
-            <td>${json[key].balance}</td>
+            <td>${json[key].username}</td>
+            <td>${json[key].numWins}</td>
+            <td>${json[key].numRewards}</td>
+            <td>${json[key].numX10Multi}</td>
+            <td>${json[key].numX5Multi}</td>
+            <td>${json[key].numX2d5Multi}</td>
+            <td>${json[key].numX1d25Multi}</td>
             `;
             i++;
         }
@@ -59,13 +64,11 @@ description: "Users with the most 'Who Dis?' wins."
             thToClick.click();
         }
     }
-    fetch("https://gbot-database-default-rtdb.firebaseio.com/gcoin.json")
+    fetch("{{site.gbot_host}}/GBot/public/storms/leaderboard")
         .then((response) => response.json())
         .then(json => {
             createHeader();
             populateBody(json);
-            setupSorting("GCoin");
+            setupSorting("Wins");
         });
 </script>
-
-[back](./)

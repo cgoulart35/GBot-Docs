@@ -34,7 +34,7 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
 - To add GBot to a Discord server, you must subscribe to the [GBot patreon tier here](https://www.patreon.com/StormerG). You will be prompted to join the GBot Patreon Discord Server with your Patreon-linked Discord account where you will register the desired Discord server.
 
 ## Command Glossary
-![Alt text](<Slash Commands Animation.gif>)
+![Alt text](</docs/assets/images/Slash Commands Animation.gif>)
 #### <ins>Config</ins>
 <details>
 <summary>Click to expand Config commands.</summary>
@@ -249,6 +249,84 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
       </details>
 </details>  
   
+#### <ins>~~Halo~~ (DISCONTINUED)</ins>
+<details>
+<summary>Click to expand Halo commands.</summary>
+
+  *   <details>
+      <summary>.halo</summary>
+
+      *  ~~Description:~~
+         * ~~`Participate in or leave the weekly GBot Halo competition. (admin optional)`~~
+      *  ~~Syntax:~~
+         * ~~`.[halo|h] [action] [user]`~~
+         * ~~`action options are: <gamertag>, rm`~~
+      *  ~~Example:~~
+         * ~~`.h XboxGamerTag`~~
+         * ~~`.h rm`~~
+         * ~~`.halo XboxGamerTag @MasterChief`~~
+         * ~~`.halo rm @MasterChief`~~
+      </details>
+</details>
+  
+#### <ins>Hype</ins>
+<details>
+<summary>Click to expand Hype commands.</summary>
+
+  *   <details>
+      <summary>.hype</summary>
+
+      *  Description:
+         * `Set a regular expression to match against new messages in this server, and a list of possible responses to reply to it with. Surround regex and response each with double quotes if multiple words. (admin only)`
+      *  Syntax:
+         * `.[hype|hy] [regex] [reply]`
+      *  Example:
+         * `.hy "Hello there!" "General Kenobi!" "You fool! I've been trained in your Jedi arts by Count Dooku."`
+         * `.hype "It's over Anakin, I have the high ground." "You underestimate my power!"`
+      </details>
+
+  *   <details>
+      <summary>.react</summary>
+
+      *  Description:
+         * `Set a regular expression to match against new messages in this server, and a list of possible emojis to react to it with. Surround regex with double quotes if multiple words. (admin only)`
+      *  Syntax:
+         * `.[react|re] [regex] [emoji]`
+      *  Example:
+         * `.re "How are you feeling?" 😊🙁`
+         * `.react "Vrrm vrrm" 🚗`
+      </details>
+
+  *   <details>
+      <summary>.unmatch</summary>
+
+      *  Description:
+         * `Remove an existing regular expression match response in this server. (admin only)`
+      *  Syntax:
+         * `.[unmatch|um]`
+      *  Example:
+         * `.unmatch`
+      </details>      
+</details>
+
+#### <ins>Help</ins>
+<details>
+<summary>Click to expand Help commands.</summary>
+
+  *   <details>
+      <summary>.help</summary>
+
+      *  Description:
+         * `Type .help command for more info on a command. You can also type .help category for more info on a category.`
+      *  Syntax:
+         * `.help [command]`
+      *  Example:
+         * `.help`
+         * `.help GTrade`
+         * `.help cr`
+      </details>
+</details>
+
 #### <ins>Music</ins>
 <details>
 <summary>Click to expand Music commands.</summary>
@@ -341,84 +419,6 @@ Welcome to GBot! A multi-server Discord bot, Dockerized and written in Python! G
          * `.[stop|st]`
       *  Example:
          * `.st`
-      </details>
-</details>
-  
-#### <ins>~~Halo~~ (DISCONTINUED)</ins>
-<details>
-<summary>Click to expand Halo commands.</summary>
-
-  *   <details>
-      <summary>.halo</summary>
-
-      *  ~~Description:~~
-         * ~~`Participate in or leave the weekly GBot Halo competition. (admin optional)`~~
-      *  ~~Syntax:~~
-         * ~~`.[halo|h] [action] [user]`~~
-         * ~~`action options are: <gamertag>, rm`~~
-      *  ~~Example:~~
-         * ~~`.h XboxGamerTag`~~
-         * ~~`.h rm`~~
-         * ~~`.halo XboxGamerTag @MasterChief`~~
-         * ~~`.halo rm @MasterChief`~~
-      </details>
-</details>
-  
-#### <ins>Hype</ins>
-<details>
-<summary>Click to expand Hype commands.</summary>
-
-  *   <details>
-      <summary>.hype</summary>
-
-      *  Description:
-         * `Set a regular expression to match against new messages in this server, and a list of possible responses to reply to it with. Surround regex and response each with double quotes if multiple words. (admin only)`
-      *  Syntax:
-         * `.[hype|hy] [regex] [reply]`
-      *  Example:
-         * `.hy "Hello there!" "General Kenobi!" "You fool! I've been trained in your Jedi arts by Count Dooku."`
-         * `.hype "It's over Anakin, I have the high ground." "You underestimate my power!"`
-      </details>
-
-  *   <details>
-      <summary>.react</summary>
-
-      *  Description:
-         * `Set a regular expression to match against new messages in this server, and a list of possible emojis to react to it with. Surround regex with double quotes if multiple words. (admin only)`
-      *  Syntax:
-         * `.[react|re] [regex] [emoji]`
-      *  Example:
-         * `.re "How are you feeling?" 😊🙁`
-         * `.react "Vrrm vrrm" 🚗`
-      </details>
-
-  *   <details>
-      <summary>.unmatch</summary>
-
-      *  Description:
-         * `Remove an existing regular expression match response in this server. (admin only)`
-      *  Syntax:
-         * `.[unmatch|um]`
-      *  Example:
-         * `.unmatch`
-      </details>      
-</details>
-
-#### <ins>Help</ins>
-<details>
-<summary>Click to expand Help commands.</summary>
-
-  *   <details>
-      <summary>.help</summary>
-
-      *  Description:
-         * `Type .help command for more info on a command. You can also type .help category for more info on a category.`
-      *  Syntax:
-         * `.help [command]`
-      *  Example:
-         * `.help`
-         * `.help GTrade`
-         * `.help cr`
       </details>
 </details>
 

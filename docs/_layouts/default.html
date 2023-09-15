@@ -2,6 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico"  | absolute_url }}">
 
 {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,12 +20,15 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
-        <a href="./index.html" class="btn">Home</a>
-        <a href="./activity.html" class="btn">Recent Activity</a>
-        <a href="./gcoin.html" class="btn">GCoin Leaderboard</a>
-        <a href="./storms.html" class="btn">Storms Leaderboard</a>
-        <a href="./whodis.html" class="btn">'Who Dis?' Leaderboard</a>
-        <a href="{{ site.github.repository_url }}" class="btn">Documentation</a>
+        <a href="./" class="btn">Home</a>
+        <a href="./commands.html" class="btn">Commands</a>
+        <a href="./changelog.html" class="btn">Changelog</a>
+        <a href="{{ site.github.repository_url }}" class="btn">GitHub</a>
+        <br>
+        <a href="./activity.html" class="btn">User Activity</a>
+        <a href="./leaderboard-gcoin.html" class="btn">GCoin Leaderboard</a>
+        <a href="./leaderboard-storms.html" class="btn">Storms Leaderboard</a>
+        <a href="./leaderboard-whodis.html" class="btn">'Who Dis?' Leaderboard</a>
       {% endif %}
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>

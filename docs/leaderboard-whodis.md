@@ -1,17 +1,17 @@
 ---
 layout: default
-title: GCoin Leaderboard
-description: Users with the top GCoin balances.
+title: "'Who Dis?' Leaderboard"
+description:
 ---
 
-<table id="gcoinTable"></table>
+<table id="whoDisTable"></table>
 
 <script>
     function createHeader() {
-        var table = document.getElementById("gcoinTable");
+        var table = document.getElementById("whoDisTable");
         var header = table.createTHead(table);
         var row = header.insertRow(0);
-        var head = ["User", "GCoin"];
+        var head = ["User", "Wins", "Total Rewards"];
         for (let i = 0; i < head.length; i++) {
             let cell = document.createElement("th");
             cell.innerText = head[i];
@@ -19,14 +19,15 @@ description: Users with the top GCoin balances.
         }
     }
     function populateBody(json) {
-        var table = document.getElementById("gcoinTable");
+        var table = document.getElementById("whoDisTable");
         var tbody = table.createTBody(table);
         var i = 0;
         for (key in json) {
             var row = tbody.insertRow(i);
             row.innerHTML = `
-            <td>${key}</td>
-            <td>${json[key].balance}</td>
+            <td>${json[key].username}</td>
+            <td>${json[key].numWins}</td>
+            <td>${json[key].numRewards}</td>
             `;
             i++;
         }
@@ -59,13 +60,11 @@ description: Users with the top GCoin balances.
             thToClick.click();
         }
     }
-    fetch("https://gbot-database-default-rtdb.firebaseio.com/gcoin.json")
+    fetch("{{site.gbot_host}}/GBot/public/whodis/leaderboard")
         .then((response) => response.json())
         .then(json => {
             createHeader();
             populateBody(json);
-            setupSorting("GCoin");
+            setupSorting("Wins");
         });
 </script>
-
-[back](./)

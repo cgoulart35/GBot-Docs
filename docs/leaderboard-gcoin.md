@@ -1,19 +1,17 @@
 ---
 layout: default
-title: Storms Leaderboard
-description: Users with the most Storm wins.
+title: GCoin Leaderboard
+description:
 ---
 
-<!--- TODO: parse all user data into user buckets tracking numWins, numRewards, numX1d25Multi, numX2d5Multi, numX5Multi, numX10Multi --->
-
-<table id="stormsTable"></table>
+<table id="gcoinTable"></table>
 
 <script>
     function createHeader() {
-        var table = document.getElementById("stormsTable");
+        var table = document.getElementById("gcoinTable");
         var header = table.createTHead(table);
         var row = header.insertRow(0);
-        var head = ["User"];//, "Wins", "Total Rewards", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
+        var head = ["User", "GCoin"];
         for (let i = 0; i < head.length; i++) {
             let cell = document.createElement("th");
             cell.innerText = head[i];
@@ -21,13 +19,14 @@ description: Users with the most Storm wins.
         }
     }
     function populateBody(json) {
-        var table = document.getElementById("stormsTable");
+        var table = document.getElementById("gcoinTable");
         var tbody = table.createTBody(table);
         var i = 0;
         for (key in json) {
             var row = tbody.insertRow(i);
             row.innerHTML = `
-            <td>${key}</td>
+            <td>${json[key].username}</td>
+            <td>${json[key].balance}</td>
             `;
             i++;
         }
@@ -60,13 +59,11 @@ description: Users with the most Storm wins.
             thToClick.click();
         }
     }
-    fetch("https://gbot-database-default-rtdb.firebaseio.com/gcoin.json")
+    fetch("{{site.gbot_host}}/GBot/public/gcoin/leaderboard")
         .then((response) => response.json())
         .then(json => {
             createHeader();
             populateBody(json);
-            setupSorting("Wins");
+            setupSorting("GCoin");
         });
 </script>
-
-[back](./)
