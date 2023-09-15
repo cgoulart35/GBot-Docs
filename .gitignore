@@ -1,0 +1,6 @@
+docs/_site
+docs/.sass-cache
+docs/Gemfile.lock
+docs/*.gem
+docs/.jekyll-cache
+docs/.jekyll-cache
