@@ -31,4 +31,4 @@ description:
 #### <ins>Who Dis</ins>
 [Click to go to Who Dis commands.](./commands-whodis)
 
-![Alt text](</assets/images/Slash Commands Animation.gif>)
+![Alt text](<assets/images/Slash Commands Animation.gif>)
