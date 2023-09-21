@@ -26,8 +26,8 @@ description:
             var row = tbody.insertRow(i);
             row.innerHTML = `
             <td>${json[key].username}</td>
-            <td>${json[key].numWins}</td>
-            <td>${json[key].numRewards}</td>
+            <td>${json[key].numWhoDisWins}</td>
+            <td>${json[key].numWhoDisRewards}</td>
             `;
             i++;
         }
@@ -60,7 +60,7 @@ description:
             thToClick.click();
         }
     }
-    fetch("{{site.gbot_host}}/GBot/public/whodis/leaderboard")
+    fetch("{{site.gbot_host}}/GBot/public/leaderboard")
         .then((response) => response.json())
         .then(json => {
             createHeader();

@@ -11,7 +11,7 @@ description:
         var table = document.getElementById("stormsTable");
         var header = table.createTHead(table);
         var row = header.insertRow(0);
-        var head = ["User", "Wins", "Total Rewards", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
+        var head = ["User", "Wins", "Total Rewards", "Starts", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
         for (let i = 0; i < head.length; i++) {
             let cell = document.createElement("th");
             cell.innerText = head[i];
@@ -26,12 +26,13 @@ description:
             var row = tbody.insertRow(i);
             row.innerHTML = `
             <td>${json[key].username}</td>
-            <td>${json[key].numWins}</td>
-            <td>${json[key].numRewards}</td>
-            <td>${json[key].numX10Multi}</td>
-            <td>${json[key].numX5Multi}</td>
-            <td>${json[key].numX2d5Multi}</td>
-            <td>${json[key].numX1d25Multi}</td>
+            <td>${json[key].numStormWins}</td>
+            <td>${json[key].numStormRewards}</td>
+            <td>${json[key].numStormStarts}</td>
+            <td>${json[key].numStormTier1Multi}</td>
+            <td>${json[key].numStormTier2Multi}</td>
+            <td>${json[key].numStormTier3Multi}</td>
+            <td>${json[key].numStormTier4Multi}</td>
             `;
             i++;
         }
@@ -64,7 +65,7 @@ description:
             thToClick.click();
         }
     }
-    fetch("{{site.gbot_host}}/GBot/public/storms/leaderboard")
+    fetch("{{site.gbot_host}}/GBot/public/leaderboard")
         .then((response) => response.json())
         .then(json => {
             createHeader();

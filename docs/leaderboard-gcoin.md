@@ -59,7 +59,7 @@ description:
             thToClick.click();
         }
     }
-    fetch("{{site.gbot_host}}/GBot/public/gcoin/leaderboard")
+    fetch("{{site.gbot_host}}/GBot/public/leaderboard")
         .then((response) => response.json())
         .then(json => {
             createHeader();
