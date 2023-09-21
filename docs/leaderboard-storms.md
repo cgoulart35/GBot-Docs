@@ -11,7 +11,7 @@ description:
         var table = document.getElementById("stormsTable");
         var header = table.createTHead(table);
         var row = header.insertRow(0);
-        var head = ["User", "Wins", "Total Rewards", "Starts", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
+        var head = ["User", "Wins", "Net Rewards", "Starts", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
         for (let i = 0; i < head.length; i++) {
             let cell = document.createElement("th");
             cell.innerText = head[i];
@@ -27,7 +27,7 @@ description:
             row.innerHTML = `
             <td>${json[key].username}</td>
             <td>${json[key].numStormWins}</td>
-            <td>${json[key].numStormRewards}</td>
+            <td>${json[key].numNetStormRewards}</td>
             <td>${json[key].numStormStarts}</td>
             <td>${json[key].numStormTier1Multi}</td>
             <td>${json[key].numStormTier2Multi}</td>
