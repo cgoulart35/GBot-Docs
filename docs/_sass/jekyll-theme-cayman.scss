@@ -306,19 +306,35 @@ a {
     }
   }
 
-  #stormsTable {
-    display: inline-block;
-    margin-left: -180px;
+  @media (min-width: 1080px) and (max-width: 2560px) {
+    #stormsTable {
+      display: inline-block;
+      margin-left: -180px;
+    }
+  
+    #gcoinTable {
+      display: inline-block;
+      margin-left: 240px;
+    }
+  
+    #whoDisTable {
+      display: inline-block;
+      margin-left: 190px;
+    }
   }
 
-  #gcoinTable {
-    display: inline-block;
-    margin-left: 240px;
-  }
-
-  #whoDisTable {
-    display: inline-block;
-    margin-left: 190px;
+  @media (min-width: 100px) and (max-width: 1080px) {
+    #stormsTable {
+      display: block;
+    }
+  
+    #gcoinTable {
+      display: block;
+    }
+  
+    #whoDisTable {
+      display: block;
+    }
   }
 
   table {
