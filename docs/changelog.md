@@ -6,6 +6,7 @@ description:
 
 #### GBot 7.0
 - (NEW) <ins>Who Dis</ins> random user chat mini-game functionality
+- (NEW) GBot <ins>Leaderboards</ins> track live statistics on new [GBot-Docs](https://cgoulart35.github.io/GBot-Docs/) site
 
 #### GBot 6.0
 - <ins>Slash command</ins> functionality for all commmands (Config, GCoin, GTrade, Hype, Music, Patreon, and Storms)
