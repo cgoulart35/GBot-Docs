@@ -6,9 +6,9 @@ description:
 
 <table id="stormsTable"></table>
 
-<link rel="stylesheet" href="/assets/css/sortable.min.css" />
 <script>
     function setupSorting() {
+        // extracted JS
         document.addEventListener("click", function(c) {
             try {
                 function h(b, a) {
