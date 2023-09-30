@@ -6,9 +6,12 @@ description:
 
 <table id="stormsTable"></table>
 
+<link rel="stylesheet" href="/assets/css/sortable.min.css" />
+<script src="/assets/js/sortable.min.js"></script>
 <script>
     function createHeader() {
         var table = document.getElementById("stormsTable");
+        table.classList.add("sortable")
         var header = table.createTHead(table);
         var row = header.insertRow(0);
         var head = ["User", "Wins", "Net Rewards", "Starts", "Single Guess", "Two Guesses", "Three Guesses", "Four Guesses"];
@@ -24,52 +27,57 @@ description:
         var i = 0;
         for (key in json) {
             var row = tbody.insertRow(i);
+            var username = json[key].username
+            var numStormWins = json[key].numStormWins
+            if (numStormWins == undefined) {
+                numStormWins = "0"
+            }
+            var numNetStormRewards = json[key].numNetStormRewards
+            if (numNetStormRewards == undefined) {
+                numNetStormRewards = "0.00"
+            }
+            var numStormStarts = json[key].numStormStarts
+            if (numStormStarts == undefined) {
+                numStormStarts = "0"
+            }
+            var numStormTier1Multi = json[key].numStormTier1Multi
+            if (numStormTier1Multi == undefined) {
+                numStormTier1Multi = "0"
+            }
+            var numStormTier2Multi = json[key].numStormTier2Multi
+            if (numStormTier2Multi == undefined) {
+                numStormTier2Multi = "0"
+            }
+            var numStormTier3Multi = json[key].numStormTier3Multi
+            if (numStormTier3Multi == undefined) {
+                numStormTier3Multi = "0"
+            }
+            var numStormTier4Multi = json[key].numStormTier4Multi
+            if (numStormTier4Multi == undefined) {
+                numStormTier4Multi = "0"
+            }
             row.innerHTML = `
-            <td>${json[key].username}</td>
-            <td>${json[key].numStormWins}</td>
-            <td>${json[key].numNetStormRewards}</td>
-            <td>${json[key].numStormStarts}</td>
-            <td>${json[key].numStormTier1Multi}</td>
-            <td>${json[key].numStormTier2Multi}</td>
-            <td>${json[key].numStormTier3Multi}</td>
-            <td>${json[key].numStormTier4Multi}</td>
+            <td>${username}</td>
+            <td>${numStormWins}</td>
+            <td>${numNetStormRewards}</td>
+            <td>${numStormStarts}</td>
+            <td>${numStormTier1Multi}</td>
+            <td>${numStormTier2Multi}</td>
+            <td>${numStormTier3Multi}</td>
+            <td>${numStormTier4Multi}</td>
             `;
             i++;
         }
+        var headerCells = table.getElementsByTagName("th");
+        headerCells[1].click()
     }
-    function setupSorting(colToClick) {
-        var excludedColumns = ["User"];
-        const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-        const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
-            v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-            )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-        var allHeaders = document.querySelectorAll('th')
-        var thToClick;
-        for (i = 0; i < allHeaders.length; i++) {
-            var th = allHeaders[i];
-            if (!excludedColumns.includes(th.innerText)) {
-                if (colToClick === th.innerText) {
-                    thToClick = th;
-                }
-                th.addEventListener('click', (() => {
-                    const table = th.closest('table');
-                    const tbody = table.querySelector('tbody');
-                    Array.from(tbody.querySelectorAll('tr'))
-                        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                        .forEach(tr => tbody.appendChild(tr) );
-                }))
-            }
-        }
-        if (thToClick != undefined) {
-            thToClick.click();
-            thToClick.click();
-        }
+    function generateTable() {
+        fetch("{{site.gbot_host}}/GBot/public/leaderboard")
+            .then((response) => response.json())
+            .then(json => {
+                createHeader();
+                populateBody(json);
+            });
     }
-    fetch("{{site.gbot_host}}/GBot/public/leaderboard")
-        .then((response) => response.json())
-        .then(json => {
-            createHeader();
-            populateBody(json);
-            setupSorting("Wins");
-        });
+    generateTable()
 </script>

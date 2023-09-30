@@ -306,9 +306,22 @@ a {
     }
   }
 
+  #stormsTable {
+    display: inline-block;
+    margin-left: -180px;
+  }
+
+  #gcoinTable {
+    display: inline-block;
+    margin-left: 240px;
+  }
+
+  #whoDisTable {
+    display: inline-block;
+    margin-left: 190px;
+  }
+
   table {
-    display: block;
-    width: 100%;
     overflow: auto;
     word-break: normal;
     word-break: keep-all; // For Firefox to horizontally scroll wider tables.

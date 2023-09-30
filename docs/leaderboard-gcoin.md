@@ -6,9 +6,12 @@ description:
 
 <table id="gcoinTable"></table>
 
+<link rel="stylesheet" href="/assets/css/sortable.min.css" />
+<script src="/assets/js/sortable.min.js"></script>
 <script>
     function createHeader() {
         var table = document.getElementById("gcoinTable");
+        table.classList.add("sortable")
         var header = table.createTHead(table);
         var row = header.insertRow(0);
         var head = ["User", "GCoin"];
@@ -24,46 +27,27 @@ description:
         var i = 0;
         for (key in json) {
             var row = tbody.insertRow(i);
+            var username = json[key].username
+            var balance = json[key].balance
+            if (balance == undefined) {
+                balance = "0.00"
+            }
             row.innerHTML = `
-            <td>${json[key].username}</td>
-            <td>${json[key].balance}</td>
+            <td>${username}</td>
+            <td>${balance}</td>
             `;
             i++;
         }
+        var headerCells = table.getElementsByTagName("th");
+        headerCells[1].click()
     }
-    function setupSorting(colToClick) {
-        var excludedColumns = ["User"];
-        const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-        const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
-            v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-            )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-        var allHeaders = document.querySelectorAll('th')
-        var thToClick;
-        for (i = 0; i < allHeaders.length; i++) {
-            var th = allHeaders[i];
-            if (!excludedColumns.includes(th.innerText)) {
-                if (colToClick === th.innerText) {
-                    thToClick = th;
-                }
-                th.addEventListener('click', (() => {
-                    const table = th.closest('table');
-                    const tbody = table.querySelector('tbody');
-                    Array.from(tbody.querySelectorAll('tr'))
-                        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                        .forEach(tr => tbody.appendChild(tr) );
-                }))
-            }
-        }
-        if (thToClick != undefined) {
-            thToClick.click();
-            thToClick.click();
-        }
+    function generateTable() {
+        fetch("{{site.gbot_host}}/GBot/public/leaderboard")
+            .then((response) => response.json())
+            .then(json => {
+                createHeader();
+                populateBody(json);
+            });
     }
-    fetch("{{site.gbot_host}}/GBot/public/leaderboard")
-        .then((response) => response.json())
-        .then(json => {
-            createHeader();
-            populateBody(json);
-            setupSorting("GCoin");
-        });
+    generateTable()
 </script>
