@@ -4,20 +4,26 @@ $medium-breakpoint: 42em !default;
 
 // Headers
 $header-heading-color: #fff !default;
-$header-bg-color: #159957 !default;
-$header-bg-color-secondary: #155799 !default;
+$header-bg-color: #2efb00 !default;
+$header-bg-color-secondary: #000000 !default;
+
+// Body
+$body-background-color: #000 !default;
 
 // Text
-$section-headings-color: #159957 !default;
-$body-text-color: #606c71 !default;
-$body-link-color: #1e6bb8 !default;
+$section-headings-color: #2efb00 !default;
+$body-text-color: #fff !default;
+$body-link-color: #9900ff !default;
 $blockquote-text-color: #819198 !default;
 
 // Code
-$code-bg-color: #f3f6fa !default;
-$code-text-color: #567482 !default;
+$code-bg-color: #2efb001e !default;
+$code-text-color: #fff !default;
+
+// Highlight
+$highlight-bg-color: #001500 !default;
 
 // Borders
-$border-color: #dce6f0 !default;
-$table-border-color: #e9ebec !default;
+$border-color: #2efb001e !default;
+$table-border-color: #000000 !default;
 $hr-border-color: #eff0f1 !default;

@@ -32,6 +32,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: $body-text-color;
+  background-color: $body-background-color;
 }
 
 #skip-to-content {
@@ -73,10 +74,10 @@ a {
   transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+    background-color: $header-bg-color;
+    border-color: rgb(0, 0, 0);
   }
 
   + .btn {
@@ -251,6 +252,7 @@ a {
 
   .highlight {
     margin-bottom: 1rem;
+    background-color: $highlight-bg-color;
 
     pre {
       margin-bottom: 0;
@@ -347,12 +349,12 @@ a {
       font-weight: bold;
       text-align: left;
       background-color: black;
-      color: #2DF904;
+      color: #2efb00;
     }
 
     td {
       text-align: right;
-      background-color: #2DF904;
+      background-color: #430070d4;
     }
 
     th,
@@ -459,10 +461,10 @@ a {
 }
 .sortable {
   --stripe-color: #e4e4e4;
-  --th-color: #fff;
-  --th-bg: #808080;
-  --td-color: #000;
-  --td-on-stripe-color: #000;
+  --th-color: #000000;
+  --th-bg: #2efb00;
+  --td-color: #ffffff;
+  --td-on-stripe-color: #000000;
   border-spacing: 0;
 }
 .sortable tbody tr:nth-child(odd) {
@@ -472,7 +474,7 @@ a {
 .sortable thead th {
   background: var(--th-bg);
   color: var(--th-color);
-  font-weight: normal;
+  font-weight: bold;
   text-align: left;
   text-transform: capitalize;
   vertical-align: baseline;
