@@ -91,7 +91,7 @@ description:
             }
             row.innerHTML = `
             <td>${username}</td>
-            <td>${prettyNumber(balance)}</td>
+            <td data-sort="${balance}">${prettyNumber(balance)}</td>
             `;
             i++;
         }

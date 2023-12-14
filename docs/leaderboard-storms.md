@@ -115,13 +115,13 @@ description:
             }
             row.innerHTML = `
             <td>${username}</td>
-            <td>${prettyNumber(numStormWins)}</td>
-            <td>${prettyNumber(numNetStormRewards)}</td>
-            <td>${prettyNumber(numStormStarts)}</td>
-            <td>${prettyNumber(numStormTier1Multi)}</td>
-            <td>${prettyNumber(numStormTier2Multi)}</td>
-            <td>${prettyNumber(numStormTier3Multi)}</td>
-            <td>${prettyNumber(numStormTier4Multi)}</td>
+            <td data-sort="${numStormWins}">${prettyNumber(numStormWins)}</td>
+            <td data-sort="${numNetStormRewards}">${prettyNumber(numNetStormRewards)}</td>
+            <td data-sort="${numStormStarts}">${prettyNumber(numStormStarts)}</td>
+            <td data-sort="${numStormTier1Multi}">${prettyNumber(numStormTier1Multi)}</td>
+            <td data-sort="${numStormTier2Multi}">${prettyNumber(numStormTier2Multi)}</td>
+            <td data-sort="${numStormTier3Multi}">${prettyNumber(numStormTier3Multi)}</td>
+            <td data-sort="${numStormTier4Multi}">${prettyNumber(numStormTier4Multi)}</td>
             `;
             i++;
         }

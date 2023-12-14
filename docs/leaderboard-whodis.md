@@ -95,8 +95,8 @@ description:
             }
             row.innerHTML = `
             <td>${username}</td>
-            <td>${prettyNumber(numWhoDisWins)}</td>
-            <td>${prettyNumber(numWhoDisRewards)}</td>
+            <td data-sort="${numWhoDisWins}">${prettyNumber(numWhoDisWins)}</td>
+            <td data-sort="${numWhoDisRewards}">${prettyNumber(numWhoDisRewards)}</td>
             `;
             i++;
         }
