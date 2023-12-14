@@ -77,7 +77,7 @@ description:
     }
     function populateBody(json) {
         function prettyNumber(numStr) {
-            return parseFloat(numStr).toLocaleString('en')
+            return numStr.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
         }
         var table = document.getElementById("whoDisTable");
         var tbody = table.createTBody(table);
