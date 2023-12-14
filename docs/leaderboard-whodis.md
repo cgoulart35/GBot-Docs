@@ -76,6 +76,9 @@ description:
         }
     }
     function populateBody(json) {
+        function prettyNumber(numStr) {
+            return parseFloat(numStr).toLocaleString('en')
+        }
         var table = document.getElementById("whoDisTable");
         var tbody = table.createTBody(table);
         var i = 0;
@@ -92,8 +95,8 @@ description:
             }
             row.innerHTML = `
             <td>${username}</td>
-            <td>${numWhoDisWins}</td>
-            <td>${numWhoDisRewards}</td>
+            <td>${prettyNumber(numWhoDisWins)}</td>
+            <td>${prettyNumber(numWhoDisRewards)}</td>
             `;
             i++;
         }

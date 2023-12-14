@@ -76,6 +76,9 @@ description:
         }
     }
     function populateBody(json) {
+        function prettyNumber(numStr) {
+            return parseFloat(numStr).toLocaleString('en')
+        }
         var table = document.getElementById("stormsTable");
         var tbody = table.createTBody(table);
         var i = 0;
@@ -112,13 +115,13 @@ description:
             }
             row.innerHTML = `
             <td>${username}</td>
-            <td>${numStormWins}</td>
-            <td>${numNetStormRewards}</td>
-            <td>${numStormStarts}</td>
-            <td>${numStormTier1Multi}</td>
-            <td>${numStormTier2Multi}</td>
-            <td>${numStormTier3Multi}</td>
-            <td>${numStormTier4Multi}</td>
+            <td>${prettyNumber(numStormWins)}</td>
+            <td>${prettyNumber(numNetStormRewards)}</td>
+            <td>${prettyNumber(numStormStarts)}</td>
+            <td>${prettyNumber(numStormTier1Multi)}</td>
+            <td>${prettyNumber(numStormTier2Multi)}</td>
+            <td>${prettyNumber(numStormTier3Multi)}</td>
+            <td>${prettyNumber(numStormTier4Multi)}</td>
             `;
             i++;
         }
